@@ -92,7 +92,6 @@ Game& Game::play()
 		system("cls");
 		std::cout << stages.at(i);
 
-		std::cout << word << std::endl;
 		std::cout << seeking << std::endl;
 		std::cout << "Неправильные: ";
 		for (auto& i : wrong_answers)
