@@ -81,6 +81,9 @@ Game& Game::play()
 	srand(static_cast<int>(time(0)));
 
 	std::string seeking, word = crypt(all_words.at(rand() % all_words.size()), key);
+
+	word = toLowerCase(word);
+
 	for (auto i : word)
 		seeking.push_back('_');
 
@@ -89,6 +92,7 @@ Game& Game::play()
 		system("cls");
 		std::cout << stages.at(i);
 
+		std::cout << word << std::endl;
 		std::cout << seeking << std::endl;
 		std::cout << "Неправильные: ";
 		for (auto& i : wrong_answers)
@@ -118,6 +122,9 @@ Game& Game::play()
 		else // Found
 		{
 			size_t found = word.find(answer.at(0));
+
+
+
 			while (found != std::string::npos) // Looking for all chars
 			{
 				seeking.at(found) = word.at(found);
@@ -269,4 +276,16 @@ size_t menu(std::vector<std::string> strs)
 	}
 
 
+}
+
+std::string toLowerCase(std::string str)
+{
+	for (auto& i : str)
+	{
+		if (i >= 'А' && i <= 'Я')
+			i = i + ('а' - 'А');
+		if (i >= 'A' && i <= 'Z')
+			i = i + ('a' - 'A');
+	}
+	return str;
 }

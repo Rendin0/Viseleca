@@ -25,3 +25,4 @@ public:
 std::string crypt(std::string str, std::string key);
 void crypt_file(std::string path, std::string key);
 size_t menu(std::vector<std::string> strs);
+std::string toLowerCase(std::string str);
