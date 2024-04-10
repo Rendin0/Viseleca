@@ -6,11 +6,11 @@ int main()
 	system("cls");
 
 	Game game1;
-	game1.importFile("file.txt", "12345");
+	//game1.importFile("file.txt", "UltraDrive");
 
 	while (true)
 	{
-		size_t key = menu({ "New game", "Import file", "Score", "Exit" });
+		size_t key = menu({ "New game", "Import file", "Crypt file", "Score", "Exit" });
 
 		system("cls");
 		try
@@ -32,10 +32,20 @@ int main()
 				break;
 			}
 			case 2:
+			{
+				std::cout << "Path: ";
+				std::string path, key;
+				std::getline(std::cin, path);
+				std::cout << "Key: ";
+				std::getline(std::cin, key);
+				crypt_file(path, key);
+				break;
+			}
+			case 3:
 				std::cout << "Score: " << game1.getScore() << std::endl;
 				system("pause");
 				break;
-			case 3:
+			case 4:
 				return 0;
 			}
 		}
